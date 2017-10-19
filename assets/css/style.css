@@ -1,0 +1,650 @@
+html, body {
+	background: white;
+	font-family: 'PT Sans Narrow', sans-serif;
+	margin: 0 auto;
+}
+
+#content{
+  margin-top: 0px;
+	position: relative;
+}
+
+/* START: Search&Nav Bar  */
+
+#navbar {
+    position: fixed;
+    width: 100%;
+    z-index: 9000;
+}
+
+#topbar {
+    width: 100%;
+    background-color: #24272b ;
+    height: 50px;
+    position: relative;
+}
+
+.navbar-item {
+    float: left;
+}
+
+.navbar-item img{
+  height: 30px;
+  margin-top: 10px;
+  margin-left: 50px;
+}
+
+.navbar-item img:hover{
+  cursor: pointer;
+}
+
+.searchbox {
+    width: 1000px;
+    height: 30px;
+    background-color: white;
+    position: absolute;
+    transform:translate(-50%,-50%);
+    left: 50%;
+    top: 50%;
+    border-radius: 2px;
+}
+
+input[type=search]{
+    width: 1000px;
+    height: 30px;
+    background-color: white;
+    position: absolute;
+    transform:translate(-50%,-50%);
+    left: 50%;
+    top: 50%;
+		border: 2px;
+		border-radius: 2px;
+		padding: 0px 10px;
+    outline-color: #F4DD5D;
+}
+
+#menubar {
+    width: 100%;
+    background-color: #4e5156 ;
+    height: 40px;
+    position: relative;
+}
+
+#menucontainer {
+    width:1000px;
+    height: 30px;
+    position: absolute;
+    transform:translate(-50%,-50%);
+    left: 50%;
+    top: 50%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.menu-item {
+    background-color: #24272b ;
+    padding: 7px;
+    border-radius: 3px;
+    float: left;
+    color: #F4DD5D ;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.menu-item:hover{
+  cursor:pointer;
+  color: white;
+}
+
+.row{
+  width: 100%;
+  height: 120px;
+  text-align: center;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+a:link {
+  text-decoration: none;
+  color: #F4DD5D;
+}
+
+a:visited {
+  text-decoration: none;
+  color: #F4DD5D;
+}
+
+a:hover {
+  color: white;
+  transition: 0.1s;
+}
+
+/* END: Search&Nav Bar  */
+
+
+/* START: Movies Page */
+
+.result{
+     width:23%;
+    /*height:400px;
+    background: #F4DD5D;
+    display: inline-block;
+    margin: 10px 10px 10px 10px; */
+    position: relative;
+    /*
+    background-size: cover;
+    background-position: center;
+    -webkit-filter: grayscale(25%);
+    filter: grayscale(25%);
+    */
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+.movie {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    height: 100%;
+}
+.movie img {
+    flex-shrink: 0;
+    min-width: 100%;
+    min-height: 100%
+}
+
+.overlay{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #F4DD5D;
+    overflow: hidden;
+    width: 100%;
+    height: 0;
+    transition: .5s ease;
+    opacity: .95;
+}
+
+.result:hover .overlay{
+  height: 30%;
+  cursor: pointer;
+}
+
+.result:focus .overlay{
+  height: 30%;
+  cursor: pointer;
+}
+
+.result:focus .overlay .description{
+  overflow-y: scroll;
+  white-space: normal;
+}
+
+.movie-info{
+  height:30%;
+}
+
+#filter-by{
+  float:right;
+  cursor: pointer;
+  display: inline-block;
+	padding: 10px;
+	border-radius: 2px;
+	background-color: #F4DD5D;
+}
+
+#filter-by:hover{
+	opacity: 0.9;
+}
+
+#titles{
+  float:left;
+  font-size: 40px;
+	font-family: 'Josefin Sans';
+	padding: 10px;
+  display: inline-block;
+
+}
+
+#search-content{
+  margin-top: 100px;
+  position:absolute;
+  width: 100%;
+}
+
+#search-header{
+  height: 50px;
+  margin-top: 10px;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 3%;
+}
+
+.results-row{
+	margin:-2% 0% 5% 0%;
+  /*text-align: center;*/
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+#results-list{
+  margin-left:10%;
+  margin-right: 10%;
+  margin-top: 3%;
+  text-align: center;
+}
+
+.text {
+    white-space: nowrap;
+    color: white;
+    font-size: 100%;
+    position: relative;
+    overflow: hidden;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: left;
+    opacity: 1;
+    height:100%;
+    margin: 5% 5% 5% 0%;
+}
+
+.movie-title{
+  float:left;
+  cursor: pointer;
+  font-size: 130%;
+}
+
+.date{
+  float:right;
+  font-size: 120%;
+}
+
+.description{
+  position: relative;
+  top: 0%;
+  overflow-y:hidden;
+  white-space: normal;
+  font-size: 90%;
+  height: 46%;
+}
+
+
+/* END: Movies Page */
+
+
+
+/* START: In Theaters Page */
+
+#tabcontentcontainer{
+  position: relative;
+  top: 90px;
+}
+
+#tab {
+  width: 100%;
+  height: 43px;
+  background: #e6e6e6;
+}
+
+.intheaters{
+  text-align: center;
+  width:40%;
+  height: 20px;
+  background: white;
+  position: relative;
+  float: left;
+  margin-left: 10%;
+  margin-top: 13px;
+  border-top-left-radius: 2px;
+  font-family: 'Josefin Sans', sans-serif;
+  padding-top: 10px;
+}
+.comingsoon{
+  width:40%;
+  height: 20px;
+  background: #f5f5f5;
+  position: relative;
+  float: right;
+  bottom: 0%;
+  margin-right: 10%;
+  text-align: center;
+  margin-top: 13px;
+  overflow: hidden;
+  border-top-right-radius: 2px;
+  font-family: 'Josefin Sans', sans-serif;
+  padding-top: 10px;
+}
+
+#showtimes-content{
+  margin-top: 5px;
+  position:absolute;
+  width: 100%;
+}
+
+#showtimes-header{
+  height: 50px;
+  margin-top: 1%;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 2%;
+}
+
+#in-theaters{
+  position: relative;
+  margin-left: 5%;
+}
+
+.movie2 {
+  width:270px;
+  height:400px;
+  margin-right: 25px;
+  background: #F4DD5D;
+  display: inline-block;
+  margin: 0px 20px 20px 0px;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  -webkit-filter: grayscale(25%);
+  filter: grayscale(25%);
+  transition: 0.4s;
+}
+
+.moonlight{
+  background-image: url("../img/moonlight.jpg");
+}
+
+.land{
+  background-image: url("../img/land.jpg");
+}
+
+.et{
+  background-image: url("../img/et.jpg");
+}
+
+.drive{
+  background-image: url("../img/drive.jpg");
+}
+
+.fight{
+  background-image: url("../img/fight.jpg");
+}
+
+.leon{
+  background-image: url("../img/leon.jpg");
+}
+
+.nacho{
+  background-image: url("../img/nacho.jpg");
+}
+
+.rogue{
+  background-image: url("../img/rogue.jpg");
+}
+
+.overlay2 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #F4DD5D;
+  overflow: hidden;
+  width: 100%;
+  height: 0;
+  transition: .5s ease;
+}
+
+.text2 {
+  white-space: nowrap;
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  overflow: hidden;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+.moonlight:hover .overlay2{
+  height: 20%;
+  cursor: pointer;
+}
+
+.land:hover .overlay2{
+  height: 20%;
+  cursor: pointer;
+}
+
+.et:hover .overlay2{
+  height: 20%;
+  cursor: pointer;
+}
+
+.drive:hover .overlay2{
+  height: 20%;
+  cursor: pointer;
+}
+
+.fight:hover .overlay2{
+  height: 20%;
+  cursor: pointer;
+}
+
+.leon:hover .overlay2{
+  height: 20%;
+  cursor: pointer;
+}
+
+.nacho:hover .overlay2{
+  height: 20%;
+  cursor: pointer;
+}
+
+.rogue:hover .overlay2{
+  height: 20%;
+  cursor: pointer;
+}
+
+.overlay2:active{
+  opacity: 0.9;
+  transition: 0.4s;
+}
+
+.comingsoon:hover {
+  cursor: pointer;
+}
+
+.comingsoon:active {
+  opacity: 0.6;
+}
+
+#more{
+  clear: both;
+  height: 30px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-size: 14px;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.show:hover {
+  cursor: pointer;
+}
+
+.show:active {
+  transition: 0.4s;
+  opacity: 0.3;
+}
+
+/* END: In Theaters Page */
+
+/*START: Home screen page */
+#trailer-box {
+	margin-top: 180px;
+  position: absolute;
+  width: 100%;
+}
+
+#trailer {
+	margin-left: 5%;
+	margin-right: 12%;
+	width: 90%;
+	height: auto;
+	background: url('assets/img/trailer.jpg');
+
+}
+
+#trailer-overlay-box {
+	z-index: 1;
+	position: absolute;
+	margin-top: 140px;
+	font-family: 'Josefin Sans';
+	font-size: 35px;
+	margin-left: 5%;
+	display: inline-block;
+}
+
+#latest-releases-header {
+	height: 50px;
+  margin-top: 66%;
+  margin-left: 5%;
+  margin-right: 4%;
+  margin-bottom: 2%;
+  position: absolute;
+  width: 95%;
+}
+
+.img-rating {
+	width: 70%;
+	height: auto;
+	margin: 15px 35px;
+}
+
+.this-img{
+	min-width: 100%;
+	height: auto;
+}
+
+#main-img{
+	width: 60%;
+	height: auto;
+}
+
+#latest-releases {
+	position: absolute;
+  margin-left: 5%;
+	margin-top: 72%;
+
+}
+
+#main-rating {
+	width: 20%;
+	height: auto;
+	background: url('assets/img/fourfive.png');
+	background-size: 100px 100px;
+}
+
+#show-more {
+  height: 30px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-size: 14px;
+    font-family: 'Josefin Sans', sans-serif;
+		margin-top: 107%;
+		margin-bottom: 1%;
+}
+
+#filter {
+	float:inherit;
+	display: inline-block;
+  cursor: pointer;
+	padding: 10px;
+	margin-left: 64%;
+	border-radius: 2px;
+	background-color: #F4DD5D;
+}
+
+#filter:hover{
+	opacity: 0.9;
+}
+
+#play {
+	z-index: 2;
+	padding: 10px;
+	top: 20px;
+	border-top: 20%;
+	margin-top: 130px;
+	margin-left: 87.5%;
+	border-radius: 2px;
+	background-color: #F4DD5D;
+	cursor: pointer;
+}
+
+/* END: Home Screen Page */
+
+/*START: Actor page */
+.photo {
+  margin-left: 50px;
+  margin-right: 50px;
+  float: left;
+}
+
+.name {
+  font-size: 90px;
+  color: black;
+  /*font-family: 'Josefin Sans', sans-serif;*/
+  font-family: 'PT Sans Narrow', sans-serif;
+  position: relative;
+  margin-top: 100px;
+}
+
+.subtitle {
+  /*font-family: 'Cormorant Garamond', serif;*/
+  font-family: 'PT Sans Narrow', sans-serif;
+}
+
+.description2 {
+  /*font-family: 'Cormorant Garamond', serif;*/
+  font-family: 'PT Sans Narrow', sans-serif;
+  font-size: 18px; 
+  color: black;
+  margin: 20px;
+  margin-right: 80px;
+}
+
+.bullets {
+  font-family: 'PT Sans Narrow', sans-serif;
+  /*font-family: 'Cormorant Garamond', serif;*/
+}
+
+.features {
+  margin-top: 30px;
+  height: 200px;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+}
+
+.movie3 {
+  float: left;
+  height: 100%;
+  margin-left: 1%;
+
+}
+
+.movie3:hover {
+  cursor: pointer;
+  height: 210px;
+  transition: 0.4s ease-in-out;
+}
